@@ -118,11 +118,13 @@ if [ "$useOnlineRepo" = "y" ] ; then
 		git fetch --all -q || abort $?
 
 		echo ":: Setting up branches"
+		git checkout -q release
 		git checkout -q dev
 
 	else
 
 		echo ":: Bootstrapping branches"
+		git checkout -b dev
 		git checkout -b dev
 
 		# If log is empty
